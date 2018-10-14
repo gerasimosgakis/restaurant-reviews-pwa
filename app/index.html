@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#317EFB"/>
+  <!-- Normalize.css for better cross-browser consistency -->
+  <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+  <!-- Google font Open-sans -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+  <!-- Main CSS file -->
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="manifest" href="/manifest.json">
+  <title>Restaurant Reviews</title>
+</head>
+
+<body>
+  <!-- Beginning header -->
+  <header>
+    <nav>
+      <h1><a href="/">Restaurant Reviews</a></h1>
+    </nav>
+  </header>
+  <!-- End header -->
+
+  <!-- Beginning main -->
+  <main id="maincontent">
+    <a href ="#filter-options" class="skip-map">Skip the map</a>
+    <!-- Beginning map -->
+    <section id="map-container">
+      <img id="static_map" style="cursor: pointer; width: 100%; max-height: 600px;" onclick="swap_map()" src="https://maps.googleapis.com/maps/api/staticmap?center=40.722216,-73.987501&zoom=12&size=700x300&scale=4&format=jpg&maptype=roadmap  &markers=color:red%7Clabel:S%7C40.722216,-73.987501&key=AIzaSyBt5JL5BQWKC3p5FTNrNddAF8fNzPxo0wM"/>
+      <div id="map" style="display: none" tabindex="0" aria-role="application" aria-label="map"></div>
+    </section>
+    <!-- End map -->
+    <!-- Beginning filter -->
+    <section aria-label="filter">
+      <div id="filter-options" class="filter-options" tabindex="-1">
+        <h2>Filter Results</h2>
+        <select id="neighborhoods-select" name="neighborhoods" aria-label="Select neighborhood" onchange="updateRestaurants()">
+          <option value="all">All Neighborhoods</option>
+        </select>
+        <select id="cuisines-select" name="cuisines" aria-label="Select cuisine" onchange="updateRestaurants()">
+          <option value="all">All Cuisines</option>
+        </select>
+      </div>
+      <ul class="restaurants-list" id="restaurants-list"></ul>
+    </section>
+    <!-- End filter -->
+  </main>
+  <!-- End main -->
+
+  <!-- Beginning scripts -->
+  <!-- Service worker set up -->
+  <script charset="utf-8" src="js/swRegister.js"></script>
+  <!-- idb library -->
+  <script type="text/javascript" src="js/idb.js"></script>
+  <!-- Database helpers -->
+  <script charset="utf-8" src="js/dbhelper.js"></script>
+  <!-- Main javascript file -->
+  <script charset="utf-8" src="js/main.js"></script>
+  <!-- Google Maps -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt5JL5BQWKC3p5FTNrNddAF8fNzPxo0wM&libraries=places&callback=initMap"></script>
+  <!-- End scripts -->
+
+  <footer id="footer">
+    Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
+  </footer>
+
+</body>
+
+</html>

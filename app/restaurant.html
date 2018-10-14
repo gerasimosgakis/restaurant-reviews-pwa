@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Normalize.css for better cross-browser consistency -->
+  <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+  <!-- Google font Open-sans -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+  <!-- Main CSS file -->
+  <link rel="stylesheet" href="styles/styles.css" type="text/css">
+  <title>Restaurant Info</title>
+</head>
+
+<body class="inside">
+  <!-- Beginning header -->
+  <header>
+    <!-- Beginning nav -->
+    <nav>
+      <h1><a href="/">Restaurant Reviews</a></h1>
+    </nav>
+    <!-- Beginning breadcrumb -->
+    <ul id ="breadcrumb" class="breadcrumb" aria-label="Breadcrumb" role="navigation" >
+      <li><a href="/">Home</a></li>
+    </ul>
+    <!-- End breadcrumb -->
+    <!-- End nav -->
+  </header>
+  <!-- End header -->
+  <a href ="#restaurant-container" class="skip-map">Skip the map</a>
+  <!-- Beginning main -->
+  <main id="maincontent">
+    <!-- Beginning map -->
+    <section id="map-container">
+      <div id="map" tabindex="0" aria-role="application" aria-label="map"></div>
+    </section>
+    <!-- End map -->
+    <!-- Beginning restaurant -->
+    <section class="restaurant-container" id="restaurant-container">
+      <h2 class="restaurant-name" id="restaurant-name"></h2>
+      <img class="restaurant-img" id="restaurant-img">
+      <p class="restaurant-cuisine" id="restaurant-cuisine"></p>
+      <section class="restaurant-info" id="restaurant-info">
+        <p class="restaurant-address" id="restaurant-address"></p>
+        <table class="restaurant-hours" id="restaurant-hours"></table>
+      </section>
+      <section class="form-container" id="form-container">
+        <form id="reviewForm">
+          <label for="name">Name</label><br>
+          <input id="name" type="text" value="" name="name" placeholder="Your name" required><br><br>
+            <label>Rating:</label><br>
+            <i type="button" id="star1" class="fa fa-star" onclick="select()" aria-hidden="true"></i>
+            <i type="button" id="star2" class="fa fa-star" onclick="select()" aria-hidden="true"></i>
+            <i type="button" id="star3" class="fa fa-star" onclick="select()" aria-hidden="true"></i>
+            <i type="button" id="star4" class="fa fa-star" onclick="select()" aria-hidden="true"></i>
+            <i type="button" id="star5" class="fa fa-star" onclick="select()" aria-hidden="true"></i>
+          <br><br>
+          <label for=comment"">Review:</label><br>
+          <textarea id="comment" type="text" rows="8" cols="55" name="comment" placeholder="Please write your review here" value=""></textarea><br><br>
+          <div class="button-container"><button id="submit" onclick="reviewSubmit()">Submit</button></div>
+        </form>
+      </section>
+    </section>
+    <!-- end restaurant -->
+    <!-- Beginning reviews -->
+    <section class="reviews-container" id="reviews-container">
+      <ul class="reviews-list" id="reviews-list"></ul>
+    </section>
+    <!-- End reviews -->
+  </main>
+  <!-- End main -->
+
+  <!-- Beginning footer -->
+  <footer id="footer">
+    Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
+  </footer>
+  <!-- End footer -->
+  <!-- Beginning scripts -->
+  <!-- Service worker set up -->
+  <script src="js/swRegister.js"></script>
+  <!-- idb library -->
+  <script src="js/idb.js"></script>
+  <!-- Database helpers -->
+  <script src="js/dbhelper.js"></script>
+  <!-- Main javascript file -->
+  <script type="text/javascript" src="js/restaurant_info.js"></script>
+  <!-- Google Maps -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgE6pzBw4HE2FUOLvsUftkO16iq7FL7vc&libraries=places&callback=initMap"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <!-- End scripts -->
+</body>
+
+</html>
