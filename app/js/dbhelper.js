@@ -59,7 +59,7 @@ class DBHelper {
      * Fetch all restaurants.
      */
     static addRestaurants() {
-      return fetch('http://localhost/restaurants/')
+      return fetch('http://localhost:1337/restaurants/')
         .then(response => {
           if (response.status === 200) { // Got a success response from server!
             response.json().then(data => {
@@ -81,7 +81,7 @@ class DBHelper {
      */
     static updateFavorite(restaurantId, isFav) {
   
-      fetch(`http://localhost/restaurants/${restaurantId}/?is_favorite=${isFav}`, {
+      fetch(`http://localhost:1337/restaurants/${restaurantId}/?is_favorite=${isFav}`, {
         method: 'PUT'
       })
       .then(() => {
@@ -198,7 +198,7 @@ class DBHelper {
     }
   
     static fetchReviewsById(id) {
-      return fetch(`http://localhost/reviews/?restaurant_id=${id}`)
+      return fetch(`http://localhost:1337/reviews/?restaurant_id=${id}`)
         .then(response => response.json())
         .then(reviews => {
           this.openDatabase()
