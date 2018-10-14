@@ -121,7 +121,7 @@ class DBHelper {
         "comments": review.comments,
       };
       console.log('Sending review: ', sendReview);
-      fetch(`http://:1337/reviews/`, {
+      fetch(`http://http://ec2-18-220-2-111.us-east-2.compute.amazonaws.com:1337/reviews/`, {
         method: 'POST',
         body: JSON.stringify(sendReview),
         headers: new Headers({
